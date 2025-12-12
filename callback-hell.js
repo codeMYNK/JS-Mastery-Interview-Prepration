@@ -106,3 +106,23 @@ async function loadData() {
 }
 
 loadData();
+
+
+//Async/ Await with try/catch
+
+async function loadDataWithErrorHandling() {
+  try {
+    console.log("Starting async/await with error handling...");
+
+    const user = await fetchUserP(1);
+    const posts = await fetchPostsP(user);
+    const comments = await fetchCommentsP(posts[0]);
+
+    console.log("Final Result (async/await with error handling):");
+    console.log({ user, posts, comments });
+  } catch (error) {
+    console.error("Error occurred:", error);
+  }
+}
+
+loadDataWithErrorHandling();

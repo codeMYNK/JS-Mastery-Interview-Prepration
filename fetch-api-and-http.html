@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Card</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden max-w-sm w-full mx-4">
+        <!-- Header Background -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-700 h-32"></div>
+        
+        <!-- Card Content -->
+        <div class="px-6 pb-6">
+            <!-- Profile Image -->
+            <div class="flex justify-center -mt-16 mb-4">
+                <img id="profileImg" 
+                     alt="User Profile" 
+                     class="w-32 h-32 rounded-full border-4 border-gray-800 shadow-md object-cover">
+            </div>
+            
+            <!-- User Info -->
+            <h2 id="userName" class="text-2xl font-bold text-center text-white mb-1"></h2>
+            <p id="userTitle" class="text-center text-gray-400 text-sm mb-4"></p>
+            
+            <!-- Bio -->
+            <p id="userBio" class="text-center text-gray-300 text-sm mb-6"></p>
+            
+            <!-- Stats -->
+            <div class="flex justify-around mb-6 border-t border-b border-gray-700 py-4">
+                <div class="text-center">
+                    <p id="followers" class="text-2xl font-bold text-white"></p>
+                    <p class="text-gray-400 text-xs">Followers</p>
+                </div>
+                <div class="text-center">
+                    <p id="following" class="text-2xl font-bold text-white"></p>
+                    <p class="text-gray-400 text-xs">Following</p>
+                </div>
+                <div class="text-center">
+                    <p id="posts" class="text-2xl font-bold text-white"></p>
+                    <p class="text-gray-400 text-xs">Posts</p>
+                </div>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="flex gap-3">
+                <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition">
+                    Follow
+                </button>
+                <button class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition">
+                    Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden max-w-sm w-full mx-4">
+        <!-- Header Background -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-700 h-32"></div>
+        
+        <!-- Card Content -->
+        <div class="px-6 pb-6">
+            <!-- Profile Image -->
+            <div class="flex justify-center -mt-16 mb-4">
+                <img id="profileImg2" 
+                     alt="User Profile" 
+                     class="w-32 h-32 rounded-full border-4 border-gray-800 shadow-md object-cover">
+            </div>
+            
+            <!-- User Info -->
+            <h2 id="userName2" class="text-2xl font-bold text-center text-white mb-1"></h2>
+            <p id="userTitle2" class="text-center text-gray-400 text-sm mb-4"></p>
+            
+            <!-- Bio -->
+            <p id="userBio2" class="text-center text-gray-300 text-sm mb-6"></p>
+            
+            <!-- Stats -->
+            <div class="flex justify-around mb-6 border-t border-b border-gray-700 py-4">
+                <div class="text-center">
+                    <p id="followers2" class="text-2xl font-bold text-white"></p>
+                    <p class="text-gray-400 text-xs">Followers</p>
+                </div>
+                <div class="text-center">
+                    <p id="following2" class="text-2xl font-bold text-white"></p>
+                    <p class="text-gray-400 text-xs">Following</p>
+                </div>
+                <div class="text-center">
+                    <p id="posts2" class="text-2xl font-bold text-white"></p>
+                    <p class="text-gray-400 text-xs">Posts</p>
+                </div>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="flex gap-3">
+                <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition">
+                    Follow
+                </button>
+                <button class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition">
+                    Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refresh Button -->
+        <div class="absolute top-6 right-6">
+            <button id="refreshBtn" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition">
+                Refresh
+            </button>
+
+    <script src="fetch-api-and-http.js"></script>
+</body>
+</html>
