@@ -15,8 +15,8 @@ function debounce(fnc, delay) {
 
 document.querySelector("input").addEventListener(
   "input",
-  debounce(function () {
-    console.log("hey");
+  debounce(function (details) {
+    console.log("data in details entered in input: ", details.data);
   }, 1000)
 );
 
@@ -40,6 +40,31 @@ window.addEventListener("resize", handleResize);
 
 //Que: What is throttling?
 //Ans: Throttling is a programming technique used to control the rate at which a function is executed over time. Unlike debouncing, which delays execution until a period of inactivity, throttling ensures that a function is called at most once in a specified time interval. This is useful for scenarios where you want to limit the frequency of function calls, such as scrolling events or mouse movements, to improve performance and reduce resource consumption.
+
+//Throttling-> app koi action kr rahe ho and app ye cahate ho ki har specific time interval ke baad hi reaction perform ho, chahe kitne bhi actions ho jaye us time interval ke andar
+
+//debounce->Ek delay bataaoge tum utne delay jab bhi aayega action ka reaction melega
+
+//Throttle-> interval par chalunga, action agar hota raha and aapne ek interval bataya to utne interval mai apka event chalega
+
+function throtttle(fnc, delay) {
+  let timer = 0;
+  return function (...args) {
+    let now = Date.now();
+    if (now - timer >= delay) {
+      timer = now;
+      fnc(...args);
+    }
+  };
+}
+
+document.querySelector("input").addEventListener(
+  "input",
+  throtttle(function (details) {
+    console.log("Throttling Example data in details entered in input: ", details.data);
+  }, 1000)
+);
+
 
 // Example of Throttling
 function throttle(func, limit) {
