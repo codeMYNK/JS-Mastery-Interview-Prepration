@@ -160,3 +160,41 @@ c();
 // a
 // b
 // c
+
+
+//Que: NodeJS mai event ;loop kaise kaam karta hai?
+//Ans: Node.js mai event loop kaam karta hai similar tarike se jaise browser mai karta hai, lekin kuch differences hote hain kyunki Node.js server-side environment hai aur uske paas apne APIs aur mechanisms hote hain asynchronous operations handle karne ke liye. Node.js ka event loop libuv library par based hai, jo ki asynchronous I/O operations ko manage karti hai.
+
+//Node.js event loop ke phases:
+//1. Timers Phase: Is phase mai setTimeout aur setInterval ke callbacks execute hote hain.
+//2. I/O Callbacks Phase: Is phase mai kuch system-level I/O callbacks execute hote hain, jaise ki TCP errors.
+//3. Idle, Prepare Phase: Ye internal phase hai jisme kuch preparation tasks hote hain.
+//4. Poll Phase: Is phase mai new I/O events ko poll kiya jata hai aur unke corresponding callbacks execute hote hain. Agar koi I/O operation complete hua hai to uska callback yahan execute hota hai.
+//5. Check Phase: Is phase mai setImmediate ke callbacks execute hote hain.
+//6. Close Callbacks Phase: Is phase mai close events ke callbacks execute hote hain, jaise ki socket.on('close').
+
+//Microtasks Queue: Node.js mai bhi microtasks queue hoti hai, jisme promises ke .then() aur process.nextTick() ke callbacks store hote hain. Microtasks queue ko har phase ke end mai process kiya jata hai, isliye ye high priority hoti hai.
+
+//Example:
+console.log('Start');
+
+setTimeout(() => {
+  console.log('Timeout callback');
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('Promise callback');
+});
+
+console.log('End');
+
+//Output:
+// Start
+// End
+// Promise callback
+// Timeout callback
+
+//Is example mai, setTimeout ka callback timers phase mai execute hoga, lekin promise ka callback microtasks queue mai jayega aur wo pehle execute hoga kyunki microtasks queue ko har phase ke end mai process kiya jata hai. Isliye output mai 'Promise callback' pehle aata hai, uske baad 'Timeout callback'.
+
+//Node.js ka event loop asynchronous operations ko efficiently handle karta hai, jisse server responsive rehta hai aur multiple requests ko simultaneously process kar sakta hai without blocking the main thread.
+
